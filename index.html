@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeMovies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="be">BE</span><span class="movies">MOVIES</span>
+            </div>
+            <div class="menu">
+                <a href="#results-container">SEARCH</a>
+                <a href="#latest-release">LATEST</a>
+                <a href="#genre">GENRES</a>
+                <a href="#signin-popup">REGISTER</a>
+                <a href="#signin-popup">SIGNIN</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search...">
+            <button class="search-button">➜</button>
+        </div>
+
+
+        <div class="results-container" id="results-container">
+            <div class="results-header">Results for "..."</div>
+            <div class="content">
+                <img src="vector1.png" class="arrow" alt="left">
+                <div class="poster"></div>
+                <div class="poster"></div>
+                <a href="#movie-modal" class="poster" style="background-image: url(godfather.jpg);">
+                    <div class="movie">
+                        <span class="movie-title">The Godfather part III</span><br>
+                        <span class="movie-year">1990</span><br>
+                        <span class="movie-genre">Crime / Drama / Thriller</span><br>
+                        <span class="movie-rating"><img src="star.png" alt=""><br>7.4</span>
+                    </div>  
+                </a>
+                <div class="poster"></div>
+                <img src="vector2.png" class="arrow" alt="right">
+            </div>
+        </div>
+        
+        <div class="latest-release" id="latest-release">
+            <div class="results-header">Latest releases</div>
+            <div class="content">
+                <img src="vector1.png" class="arrow" alt="left">
+                <div class="poster">Poster 1</div>
+                <div class="poster">Poster 2</div>
+                <div class="poster">Poster 3</div>
+                <div class="poster">Poster 4</div>
+                <img src="vector2.png" class="arrow" alt="right">
+            </div>
+        </div>
+
+        <div class="genre" id="genre">
+            <div class="genre-header">
+                <div class="genre-title">Movies by genre</div>
+                <div class="genre-list">
+                    <a href="#">Comedy</a>
+                    <a href="#">Drama</a>
+                    <a href="#">Action</a>
+                    <a href="#">Romance</a>
+                    <a href="#">Fantasy</a>
+                    <a href="#">Animation</a>
+                </div>
+            </div>
+            <div class="separator"></div>
+            <div class="results-header">Comedy</div>
+            <div class="content">
+                <img src="vector1.png" class="arrow" alt="left">
+                <div class="poster">Poster 1</div>
+                <div class="poster">Poster 2</div>
+                <div class="poster">Poster 3</div>
+                <div class="poster">Poster 4</div>
+                <img src="vector2.png" class="arrow" alt="right">
+            </div>
+        </div>
+    </main>
+
+    <div class="popup" id="signin-popup">
+        <a href="" class="close-button">&#11198;</a>
+        <div class="popup-content">
+            <div class="signup-login">
+                <div class="signup">
+                    <a href="" class="signup-button">SIGNUP</a>
+                    <a href="" class="login-button">LOGIN</a>
+                </div>
+            </div>
+            <form id="login-section" class="login-form">
+                <input type="text" class="input" placeholder="Username">
+                <input type="password" class="input" placeholder="Password">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember"><label for="remember">Remember me</label>
+                </div>
+                <button type="submit" class="login-button2">LOGIN</button>
+                <div class="forgot-password">
+                    <a href="#">I forgot my password</a>
+                </div>
+                <div class="signup-text">
+                    Not a member yet? <a href="#">Sign up</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="modal" id="movie-modal">
+        <div class="modal-content">
+            <a href="#" class="close-modal">&#11198;</a>
+            <div class="modal-left">
+                <img src="godfather.jpg" alt="The Godfather">
+            </div>
+            <div class="modal-right">
+                <h1 class="modal-title">The Godfather part III</h1>
+                <p class="modal-genre-year">1972</p>
+                <h1 class="modal-title"><img src="star.png" alt="">  7.4</h1>
+                <p class="modal-genre">Crime / Drama / Thriller</p>
+                <p class="modal-text">Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.</p>
+                <br><p class="modal-text"><span class="cast">CAST: </span>Marlon Brando, Al Pacino, James Caan, Robert Duvall</p>
+            </div>
+        </div>
+    </div>
+   
+    <footer>
+        <div class="logo">
+            <span class="be">BE</span><span class="movies">MOVIES</span>
+        </div>
+        <div class="footer-menu">
+            <a href="#">SEARCH</a>
+            <a href="#">LATEST</a>
+            <a href="#">GENRES</a>
+            <a href="#">REGISTER</a>
+            <a href="#">SIGNIN</a>
+        </div>
+        <div class="copyright">@2023 - All rights reserved</div>
+    </footer>
+
+</body>
+</html>
