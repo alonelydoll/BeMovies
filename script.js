@@ -11,10 +11,56 @@ const options = {
     }
 };
 
+//HOVER//
+const hover = (movie, imgElement)=>{
+    const hoverDiv = document.createElement('div');
+    hoverDiv.className = 'movie';
+    hoverDiv.style.zIndex = "1";
+    hoverDiv.style.opacity = "90%";
+            hoverDiv.style.display = "none";
+            hoverDiv.style.alignItems = "center";
+            hoverDiv.style.gap = "20px";
+            hoverDiv.style.backgroundColor ="black"
+
+            const title = document.createElement('span');
+            title.innerText = movie.title;
+            title.className = "movie-title";
+
+            const year = document.createElement('span');
+            year.innerText = movie.release_date;
+            year.className = "movie-year";
+
+            const genre = document.createElement('span');
+            genre.innerText = movie.genre_ids;
+            genre.className ="movie-genre";
+
+            const rating = document.createElement('span');
+            rating.innerText = movie.vote_average.toFixed(1);
+            rating.className = "movie-rating";
+
+            const star = document.createElement('img');
+            star.src = "star.png";
+
+            imgElement.appendChild(hoverDiv);
+            hoverDiv.appendChild(title);
+            hoverDiv.appendChild(year);
+            hoverDiv.appendChild(genre);
+            hoverDiv.appendChild(star);
+            hoverDiv.appendChild(rating);
+
+            imgElement.addEventListener('mouseover', ()=>{
+                hoverDiv.style.display = "flex";
+
+                imgElement.addEventListener('mouseleave', ()=>{
+                    hoverDiv.style.display = "none";
+                })
+            })
+}
 
 //SEARCH MOVIES//
-
+resultContainer.style.display = "none";
 btnSearch.addEventListener('click', ()=>{
+    resultContainer.style.display = "block";
     searchMovies();
 })
 async function searchMovies(){
@@ -28,28 +74,41 @@ async function searchMovies(){
         console.error('Error fetching movie data:', error);
     }
 }
-
 const divResults = (movies)=>{
     const contentResult = document.querySelector(".content-result");
     contentResult.innerHTML = " ";
     
     movies.forEach(movie =>{
         if(movie.poster_path){
-            const posterDiv = document.createElement('div');
-            posterDiv.className = 'poster-result';
+            //hover
+            const imgElement = document.createElement('a');
+            imgElement.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`;
+            imgElement.className = 'poster-result';
 
-            const img = document.createElement('img');
-            img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-            img.alt = movie.title;
+            contentResult.appendChild(imgElement);
 
-            posterDiv.appendChild(img);
-            contentResult.appendChild(posterDiv);
-            console.log(movie.id);
+            hover(movie, imgElement);
+
+            //modal
+            imgElement.addEventListener('click', ()=>{
+                document.querySelector(".modal").style.display = "block";
+                document.querySelector('.modal-image').src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+                document.getElementsByClassName("modal-title")[0] = movie.title;
+                document.querySelector(".modal-genre-year") = (movie.release_date).getFullYear();
+                document.getElementsByClassName("modal-title")[1] = (movie.vote_average).toFixed(1);
+                // document.querySelector(".modal-genre") = movie.gen
+                document.getElementsByClassName("modal-text")[0] = movie.overview;
+
+            })
+            document.querySelector(".close-modal").addEventListener('click', ()=>{
+                document.querySelector(".modal").style.display = "none";
+            })
         }
 
         })
 
 }
+
 
 //LATEST MOVIES//
 async function lastestMovie(){
@@ -61,23 +120,39 @@ async function lastestMovie(){
         console.error('Error fetching movie data:', error);
     }
 }
+
 const divLatest = (movies)=>{
     const contentLatest = document.querySelector(".content-latest");
     movies.forEach(movie =>{
-        const posterDiv = document.createElement('div');
-        posterDiv.className = 'poster-result';
+        //hover//
+        const imgElement = document.createElement('a');
+            imgElement.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`;
+            imgElement.className = 'poster-result';
 
-        const img = document.createElement('img');
-        img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-        img.alt = movie.title;
+            contentLatest.appendChild(imgElement);
 
-        posterDiv.appendChild(img);
-        contentLatest.appendChild(posterDiv);
+            hover(movie, imgElement);
+
+        
+        //Modal//
+            imgElement.addEventListener('click', ()=>{
+                document.querySelector(".modal").style.display = "block";
+                document.querySelector('.modal-image').src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+                document.getElementsByClassName("modal-title")[0] = movie.title;
+                document.querySelector(".modal-genre-year") = (movie.release_date).getFullYear();
+                document.getElementsByClassName("modal-title")[1] = (movie.vote_average).toFixed(1);
+                // document.querySelector(".modal-genre") = movie.gen
+                document.getElementsByClassName("modal-text")[0] = movie.overview;
+
+        })
+        document.querySelector(".close-modal").addEventListener('click', ()=>{
+            document.querySelector(".modal").style.display = "none";
+        })
+        
 
     })
 }
 lastestMovie();
-
 
 
 //GENRE MOVIE//
@@ -140,15 +215,30 @@ const divGenre = (movies)=>{
     const contentGenre = document.querySelector(".content-genre");
     contentGenre.innerHTML = " ";
     movies.forEach(movie =>{
-        const posterDiv = document.createElement('div');
-        posterDiv.className = 'poster-result';
+        //hover//
+        const imgElement = document.createElement('a');
+            imgElement.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`;
+            imgElement.className = 'poster-result';
 
-        const img = document.createElement('img');
-        img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-        img.alt = movie.title;
+            contentGenre.appendChild(imgElement);
 
-        posterDiv.appendChild(img);
-        contentGenre.appendChild(posterDiv);
-        console.log(movie.id);
+            hover(movie, imgElement);
+
+            //modal//
+            imgElement.addEventListener('click', ()=>{
+                document.querySelector(".modal").style.display = "block";
+                document.querySelector('.modal-image').src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+                document.getElementsByClassName("modal-title")[0] = movie.title;
+                document.querySelector(".modal-genre-year") = (movie.release_date).getFullYear();
+                document.getElementsByClassName("modal-title")[1] = (movie.vote_average).toFixed(1);
+                // document.querySelector(".modal-genre") = movie.gen
+                document.getElementsByClassName("modal-text")[0] = movie.overview;
+
+            })
+            document.querySelector(".close-modal").addEventListener('click', ()=>{
+                document.querySelector(".modal").style.display = "none";
+            })
     })
 }
+
+
