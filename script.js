@@ -3,6 +3,16 @@ const btnSearch = document.querySelector(".search-button");
 const spanNameSearch = document.querySelector(".result-search");
 const resultContainer = document.querySelector(".results-container");
 
+//SWIPER//
+const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+
 const options = {
     method: 'GET',
     headers: {
