@@ -34,36 +34,38 @@
             <button class="search-button">➜</button>
         </div>
 
-
         <div class="results-container" id="results-container">
             <div class="results-header">Results for "<span class="result-search"></span>"</div>
             <div class="content-result">
-                <img src="vector1.png" class="arrow" alt="left">
-                <!-- <div class="poster"></div>
-                <div class="poster"></div>
-                <a href="#movie-modal" class="poster" style="background-image: url(godfather.jpg);">
-                    <div class="movie">
-                        <span class="movie-title">The Godfather part III</span><br>
-                        <span class="movie-year">1990</span><br>
-                        <span class="movie-genre">Crime / Drama / Thriller</span><br>
-                        <span class="movie-rating"><img src="star.png" alt=""><br>7.4</span>
-                    </div>  
-                </a>
-                <div class="poster"></div> -->
-                <img src="vector2.png" class="arrow" alt="right">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="poster-result swiper-slide">Poster 1</div>
+                        <div class="poster-result swiper-slide">Poster 2</div>
+                        <div class="poster-result swiper-slide">Poster 3</div> 
+                        <div class="poster-result swiper-slide">Poster 4</div> 
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
+            <!-- au lieu d'utiliser .content-result dans ton js, utilise ".content-result .swiper-wrapper" -->
         </div>
-        
+
         <div class="latest-release" id="latest-release">
             <div class="results-header">Latest releases</div>
-            <div class="content-latest">
-                <img src="vector1.png" class="arrow" alt="left">
-                <!-- <div class="poster">Poster 1</div>
-                <div class="poster">Poster 2</div>
-                <div class="poster">Poster 3</div>
-                <div class="poster">Poster 4</div> -->
-                <img src="vector2.png" class="arrow" alt="right">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="poster-result swiper-slide">Poster 1</div>
+                    <div class="poster-result swiper-slide">Poster 2</div>
+                    <div class="poster-result swiper-slide">Poster 3</div> 
+                    <div class="poster-result swiper-slide">Poster 4</div> 
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
+            <!-- <div class="content-latest"> 
+               au lieu d'utiliser .content-latest dans ton js, utilise ".latest-result .swiper-wrapper"
+            </div> -->
         </div>
 
         <div class="genre" id="genre">
@@ -80,14 +82,17 @@
             </div>
             <div class="separator"></div>
             <div class="results-header"><!--Comedy --></div>
-            <div class="content-genre">
-                <img src="vector1.png" class="arrow" alt="left">
-                <!-- <div class="poster">Poster 1</div>
-                <div class="poster">Poster 2</div>
-                <div class="poster">Poster 3</div>
-                <div class="poster">Poster 4</div> -->
-                <img src="vector2.png" class="arrow" alt="right">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="poster-result swiper-slide">Poster 1</div>
+                    <div class="poster-result swiper-slide">Poster 2</div>
+                    <div class="poster-result swiper-slide">Poster 3</div> 
+                    <div class="poster-result swiper-slide">Poster 4</div> 
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
+            <!-- au lieu d'utiliser .content-genre dans ton js, utilise ".genre .swiper-wrapper" -->
         </div>
     </main>
 
@@ -149,5 +154,19 @@
         <div class="copyright">@2023 - All rights reserved</div>
     </footer>
 
+    <!-- <script>
+       let swiper = new Swiper('.swiper', {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script> -->
 </body>
 </html>
