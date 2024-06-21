@@ -6,10 +6,11 @@
     <title>BeMovies</title>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer ></script>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="script2.js" defer></script>
 </head>
 
 <body>
@@ -23,7 +24,7 @@
                 <a href="#results-container">SEARCH</a>
                 <a href="#latest-release">LATEST</a>
                 <a href="#genre">GENRES</a>
-                <a href="#signin-popup">REGISTER</a>
+                <a href="#register-popup">REGISTER</a>
                 <a href="#signin-popup">SIGNIN</a>
             </div>
         </nav>
@@ -107,8 +108,8 @@
                 </div>
             </div>
             <form id="login-section" class="login-form">
-                <input type="text" class="input" placeholder="Username">
-                <input type="password" class="input" placeholder="Password">
+                <input type="text" class="input username" placeholder="Username">
+                <input type="password" class="input password" placeholder="Password">
                 <div class="remember-me">
                     <input type="checkbox" id="remember"><label for="remember">Remember me</label>
                 </div>
@@ -118,6 +119,28 @@
                 </div>
                 <div class="signup-text">
                     Not a member yet? <a href="#">Sign up</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="popup" id="register-popup">
+        <a href="" class="close-button">&#11198;</a>
+        <div class="popup-content">
+            <div class="signup-login">
+                <div class="signup">
+                    <a href="" class="signup-button">SIGNUP</a>
+                    <a href="" class="login-button">LOGIN</a>
+                </div>
+            </div>
+            <form id="login-section" class="login-form">
+                <input type="text" class="input username" placeholder="Username">
+                <input type="password" class="input password" placeholder="Password">
+                <input type="password" class="input password-confirm" placeholder="Confirm password">
+                <button type="submit" class="login-button2">REGISTER</button>
+                <div class="signup-text">
+                    Already a member? <a href="#">Sign in</a>
                 </div>
             </form>
 
@@ -159,10 +182,10 @@
        let swiper = new Swiper('.swiper', {
             slidesPerView: 4,
             spaceBetween: 30,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
+            // pagination: {
+            //     el: '.swiper-pagination',
+            //     clickable: true,
+            // },
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
