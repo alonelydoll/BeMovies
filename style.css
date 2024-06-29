@@ -701,12 +701,27 @@ footer {
 
 .swiper-button-prev {
     background-image: url('vector1.svg');
+    left: -50px
 }
 
 .swiper-button-next {
     background-image: url('vector2.svg');
+    right: -50px;
 }
 
 .swiper-button-prev::after, .swiper-button-next::after {
     content: '';
+}
+
+/* POSITION SWIPER BUTTONS */
+.content-result, .latest-release, .genre {
+    position: relative;
+}
+
+.latest-release .swiper-button-prev, .latest-release .swiper-button-next {
+    top: 63%;
+}
+
+.genre .swiper-button-prev, .genre .swiper-button-next {
+    top: 64%;
 }
