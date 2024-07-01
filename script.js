@@ -4,29 +4,17 @@ const spanNameSearch = document.querySelector(".result-search");
 const resultContainer = document.querySelector(".results-container");
 
 //SWIPER//
-let swiper = new Swiper(".latest-release.swiper", {
-    direction: 'horizontal',
-    loop: true,
-    spaceBetween:19,
-    slidesPerView: 1,
-    slidesPerGroup: 1,
-    breakpoints: {
-        500:{
-            slidesPerView:2,
-        },
-        768:{
-            slidesPerView:3,
-        },
-        1250: {
-            slidesPerView:4,
-        },
-    },
+
+let swiper = new Swiper(".swiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
     },
-    grabCursor: true,
-}); 
+});
+
+
 
 const options = {
     method: 'GET',
@@ -120,6 +108,8 @@ const hover = (movie, imgElement)=>{
             hoverDiv.appendChild(star);
             hoverDiv.appendChild(rating);
 
+            
+
             imgElement.addEventListener('mouseover', ()=>{
                 hoverDiv.style.display = "flex";
 
@@ -143,6 +133,7 @@ async function searchMovies(){
         const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput.value}&include_adult=false&language=en-US&page=1`, options);
         const data = await response.json();
         divResults(data.results);
+        
     }
     catch (error) {
         console.error('Error fetching movie data:', error);
@@ -192,15 +183,17 @@ async function lastestMovie(){
     try {
         const response = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_year=2024&sort_by=popularity.desc`, options);
         const data = await response.json();
-        divLatest(data.results);
+        divLatest(data.results); 
     } catch (error) {
         console.error('Error fetching movie data:', error);
     }
 }  
 
 const divLatest = (movies)=>{
+
     const contentLatest = document.querySelector(".latest-release .swiper-wrapper");
     contentLatest.innerHTML = " ";
+
 
     movies.forEach(movie =>{
         //hover//
@@ -212,7 +205,8 @@ const divLatest = (movies)=>{
             imgElement.className = 'poster-result';
 
             contentLatest.appendChild(divSwiper);
-            divSwiper.appendChild(imgElement)
+            divSwiper.appendChild(imgElement);
+
 
             hover(movie, imgElement);
 
