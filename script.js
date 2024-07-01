@@ -100,6 +100,7 @@ const hover = (movie, imgElement)=>{
             const star = document.createElement('img');
             star.src = "star.png";
             star.style.width = "32px";
+            star.style.height = "32px";
 
             imgElement.appendChild(hoverDiv);
             hoverDiv.appendChild(title);
@@ -152,6 +153,7 @@ const divResults = (movies)=>{
             const imgElement = document.createElement('a');
             imgElement.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`;
             imgElement.className = 'poster-result';
+            imgElement.style.backgroundSize = "cover";
             
 
             contentResult.appendChild(divSwiper);
@@ -203,6 +205,7 @@ const divLatest = (movies)=>{
         const imgElement = document.createElement('a');
             imgElement.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`;
             imgElement.className = 'poster-result';
+            imgElement.style.backgroundSize = "cover";
 
             contentLatest.appendChild(divSwiper);
             divSwiper.appendChild(imgElement);
@@ -307,6 +310,7 @@ const divGenre = (movies)=>{
         const imgElement = document.createElement('a');
             imgElement.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`;
             imgElement.className = 'poster-result';
+            imgElement.style.backgroundSize = "cover";
 
             contentGenre.appendChild(divSwiper);
             divSwiper.appendChild(imgElement);
